@@ -1,0 +1,28 @@
+sudo mkdir /etc/v2rayL
+sudo chmod 777 -R /etc/v2rayL
+sudo mkdir /usr/bin/v2rayL
+sudo chmod 777 -R /usr/bin/v2rayL
+wget -O /etc/v2rayL/v2ray-core.tar 
+wget -O /etc/v2rayL/v2ray-core.tar https://www.lanzoux.com/i7jyzje
+cd /etc/v2rayL
+tar -xvf v2ray-core.tar 1>/dev/null
+cp /etc/v2rayL/v2ray-core/{geoip.dat,geosite.dat,v2ctl,v2ray,v2ray.sig,v2ctl.sig,h2y.dat} /usr/bin/v2rayL
+mv /etc/v2rayL/v2ray-core/add.sh /etc/v2rayL/add.sh
+mv /etc/v2rayL/v2ray-core/remove.sh /etc/v2rayL/remove.sh
+chmod +x /etc/v2rayL/add.sh
+chmod +x /etc/v2rayL/remove.sh
+sudo cp /etc/v2rayL/v2ray-core/v2rayL.service /etc/systemd/system/
+wget -P /etc/v2rayL http://cloud.thinker.ink/download/images-v2.0.2.tar
+cd /etc/v2rayL
+tar -xvf images-v2.0.2.tar 1>/dev/null
+rm /etc/v2rayL/v2ray-core.tar
+rm /etc/v2rayL/images-v2.0.2.tar
+wget -O /usr/bin/v2rayL/v2rayLui.tar https://www.lanzoux.com/i7k5c0j
+cd /usr/bin/v2rayL
+tar -xvf v2rayLui.tar 1>/dev/null
+chmod +x /usr/bin/v2rayL/v2rayLui
+rm /usr/bin/v2rayL/v2rayLui.tar
+sudo apt-get install zbar-tools -y
+sudo wget -P /usr/share/applications http://cloud.thinker.ink/download/v2rayL.desktop
+sudo chmod u+x /usr/share/applications/v2rayL.desktop
+sudo systemctl enable v2rayL.service
